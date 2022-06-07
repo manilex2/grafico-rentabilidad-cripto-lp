@@ -74,110 +74,108 @@ function totalChart(ctx, extraerdatos){
 
     
     /*global Chart*/
-        total.push({
-            type: 'bar',
-            label: '30 Días',
-            data: [D30[0][0], D30[0][1], D30[0][2]],
-            backgroundColor: 'rgba(75, 192, 192)'
-        });  
-        
-        total.push({
-            type: 'bar',
-            label: '3 Meses',
-            data: [M3[0][0], M3[0][1], M3[0][2]],
-            backgroundColor: 'rgba(75, 192, 13)'
-        }); 
-        
-        total.push({
-            type: 'bar',
-            label: '6 Meses',
-            data: [M6[0][0], M6[0][1], M6[0][2]],
-            backgroundColor: 'rgba(50, 19, 1)'
-        });   
-   
+    total.push({
+        type: 'bar',
+        label: '30 Días',
+        data: [D30[0][0], D30[0][1], D30[0][2]],
+        backgroundColor: '#9E68E5'
+    });  
     
-        const chart = new Chart(ctx, {
-            data: {
-                datasets: total,
-                labels: ['Conservador', 'Optimista', 'Pesimista'],
+    total.push({
+        type: 'bar',
+        label: '3 Meses',
+        data: [M3[0][0], M3[0][1], M3[0][2]],
+        backgroundColor: '#4DA2FD'
+    }); 
+    
+    total.push({
+        type: 'bar',
+        label: '6 Meses',
+        data: [M6[0][0], M6[0][1], M6[0][2]],
+        backgroundColor: '#26D1C6'
+    });
+    const chart = new Chart(ctx, {
+        data: {
+            datasets: total,
+            labels: ['Conservador', 'Optimista', 'Pesimista'],
+        },
+        plugins: [plugin],
+        options: {
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0
+                },
             },
-            plugins: [plugin],
-            options: {
-                layout: {
-                    padding: {
-                        left: 0,
-                        right: 0
+            interaction: {
+                mode: 'i',
+                intersect: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        /* callback: function(val, i) {
+                            return i % 8 === 0 ? this.getLabelForValue(val) : '';
+                        }, */
+                        maxRotation: 0,
                     },
                 },
-                interaction: {
-                    mode: 'i',
-                    intersect: false,
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            /* callback: function(val, i) {
-                                return i % 8 === 0 ? this.getLabelForValue(val) : '';
-                            }, */
-                            maxRotation: 0,
-                        },
-                    },
-                    y: {
-                        grid: {
-                            display: false
-                        },
+                y: {
+                    grid: {
+                        display: false
                     },
                 },
-                elements: {
-                    line: {
-                        borderWidth: 3,
-                        fill: false,
-                    },
-                    point: {
-                        pointStyles: 'line'
-                    }
+            },
+            elements: {
+                line: {
+                    borderWidth: 3,
+                    fill: false,
                 },
-                plugins: {
-                    title: {
-                        display: false,
-                        text: nombreIndice,
-                        font: {
-                            size: 15,
-                        },
-                        color: '#FFF',
-                        padding: 30
-                    },
-                    /*legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 20,
-                            boxWidth: 2,
-                            boxHeight: 2,
-                            color: '#797b86',
-                            font: {
-                                family: 'system-ui',
-                                size: 16
-                            },
-                        }
-                    },*/
-                    tooltip: {
-                        backgroundColor: '#0584f6',
-                        titleFontSize: 20,
-                        xPadding: 20,
-                        yPadding: 20,
-                        bodyFontSize: 15,
-                        bodySpacing: 10,
-                        mode: 'x'
-                    },
+                point: {
+                    pointStyles: 'line'
                 }
             },
-            
-        });
+            plugins: {
+                title: {
+                    display: false,
+                    text: nombreIndice,
+                    font: {
+                        size: 15,
+                    },
+                    color: '#FFF',
+                    padding: 30
+                },
+                /*legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        boxWidth: 2,
+                        boxHeight: 2,
+                        color: '#797b86',
+                        font: {
+                            family: 'system-ui',
+                            size: 16
+                        },
+                    }
+                },*/
+                tooltip: {
+                    backgroundColor: '#0584f6',
+                    titleFontSize: 20,
+                    xPadding: 20,
+                    yPadding: 20,
+                    bodyFontSize: 15,
+                    bodySpacing: 10,
+                    mode: 'x'
+                },
+            }
+        },
+        
+    });
 }
 
 async function renderizarCharts() {

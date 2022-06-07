@@ -92,8 +92,7 @@ function totalChart(ctx, extraerdatos){
             label: '6 Meses',
             data: [M6[0][0], M6[0][1], M6[0][2]],
             backgroundColor: '#26D1C6'
-        });   
-        console.log(total);
+        });
     const chart = new Chart(ctx, {
         data: {
             datasets: total,
