@@ -77,21 +77,21 @@ function totalChart(ctx, extraerdatos){
             type: 'bar',
             label: '30 Días',
             data: [D30[0][0], D30[0][1], D30[0][2]],
-            backgroundColor: 'rgba(75, 192, 192)'
+            backgroundColor: '#9E68E5'
         });  
         
         total.push({
             type: 'bar',
             label: '3 Meses',
             data: [M3[0][0], M3[0][1], M3[0][2]],
-            backgroundColor: 'rgba(75, 192, 13)'
+            backgroundColor: '#4DA2FD'
         }); 
         
         total.push({
             type: 'bar',
             label: '6 Meses',
             data: [M6[0][0], M6[0][1], M6[0][2]],
-            backgroundColor: 'rgba(50, 19, 1)'
+            backgroundColor: '#26D1C6'
         });   
    
     
