@@ -96,88 +96,88 @@ function totalChart(ctx, extraerdatos){
         });   
    
     
-    const chart = new Chart(ctx, {
-        data: {
-            datasets: total,
-            labels: ['Conservador', 'Optimista', 'Pesimista'],
-        },
-        plugins: [plugin],
-        options: {
-            layout: {
-                padding: {
-                    left: 0,
-                    right: 0
-                },
+        const chart = new Chart(ctx, {
+            data: {
+                datasets: total,
+                labels: ['Conservador', 'Optimista', 'Pesimista'],
             },
-            interaction: {
-                mode: 'i',
-                intersect: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    },
-                    ticks: {
-                        /* callback: function(val, i) {
-                            return i % 8 === 0 ? this.getLabelForValue(val) : '';
-                        }, */
-                        maxRotation: 0,
+            plugins: [plugin],
+            options: {
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0
                     },
                 },
-                y: {
-                    grid: {
-                        display: false
+                interaction: {
+                    mode: 'i',
+                    intersect: false,
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            /* callback: function(val, i) {
+                                return i % 8 === 0 ? this.getLabelForValue(val) : '';
+                            }, */
+                            maxRotation: 0,
+                        },
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
                     },
                 },
-            },
-            elements: {
-                line: {
-                    borderWidth: 3,
-                    fill: false,
+                elements: {
+                    line: {
+                        borderWidth: 3,
+                        fill: false,
+                    },
+                    point: {
+                        pointStyles: 'line'
+                    }
                 },
-                point: {
-                    pointStyles: 'line'
+                plugins: {
+                    title: {
+                        display: false,
+                        text: nombreIndice,
+                        font: {
+                            size: 15,
+                        },
+                        color: '#FFF',
+                        padding: 30
+                    },
+                    /*legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            boxWidth: 2,
+                            boxHeight: 2,
+                            color: '#797b86',
+                            font: {
+                                family: 'system-ui',
+                                size: 16
+                            },
+                        }
+                    },*/
+                    tooltip: {
+                        backgroundColor: '#0584f6',
+                        titleFontSize: 20,
+                        xPadding: 20,
+                        yPadding: 20,
+                        bodyFontSize: 15,
+                        bodySpacing: 10,
+                        mode: 'x'
+                    },
                 }
             },
-            plugins: {
-                title: {
-                    display: false,
-                    text: nombreIndice,
-                    font: {
-                        size: 15,
-                    },
-                    color: '#FFF',
-                    padding: 30
-                },
-                /*legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 20,
-                        boxWidth: 2,
-                        boxHeight: 2,
-                        color: '#797b86',
-                        font: {
-                            family: 'system-ui',
-                            size: 16
-                        },
-                    }
-                },*/
-                tooltip: {
-                    backgroundColor: '#0584f6',
-                    titleFontSize: 20,
-                    xPadding: 20,
-                    yPadding: 20,
-                    bodyFontSize: 15,
-                    bodySpacing: 10,
-                    mode: 'x'
-                },
-            }
-        },
-        
-    });
+            
+        });
 }
 
 async function renderizarCharts() {
